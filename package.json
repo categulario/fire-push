@@ -1,0 +1,38 @@
+{
+  "name": "fire-push",
+  "version": "0.1.0",
+  "description": "Package to send push notifications using fcm",
+  "main": "dist/src/fire-push.js",
+  "scripts": {
+    "build": "babel src/**/*.js -d dist",
+    "test": "mocha --reporter nyan"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dezkareid/fire-push.git"
+  },
+  "keywords": [
+    "push",
+    "notifications",
+    "firebase",
+    "fcm"
+  ],
+  "author": "Joel Humberto Gómez Paredes <elmaildeldezkareid@gmail.com> (https://twitter.com/DezkaReid)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dezkareid/fire-push/issues"
+  },
+  "homepage": "https://github.com/dezkareid/fire-push#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-env": "^1.3.2",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "joi": "^10.4.1",
+    "request": "^2.81.0"
+  }
+}
