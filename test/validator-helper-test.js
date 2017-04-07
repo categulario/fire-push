@@ -28,26 +28,46 @@ describe('#ValidatorHelper test', function(){
 	});
 
 	describe('#validateNotification', function () {
-		
-		it('expected result dont have error if notification is valid',function () {
-			let notification = {
+		let notification = {}
+
+		beforeEach(function () {
+			notification = {
 				title : 'Ey',
 				body : 'Make push notifications great again',
 				sound : 'cielitolindo'
 			};
+		});
+		
+		it('expected result dont have error if notification is valid',function () { 
 			let result = ValidatorHelper.validateNotification(notification);
 			expect(result.error).to.be.null;
 		});
 
 		it('expected result have error if notification is not valid',function () {
-			let notification = {
-				title : 15262728,
-				body : 'Make push notifications great again',
-				sound : 'cielitolindo'
-			};
+			notification.title = 15262728;
 			let result = ValidatorHelper.validateNotification('notification', notification);
 			expect(result.error).to.not.be.null;
 		});
+	});
+
+	describe('#validateMessage', function () {
+
+		let message = {}
+
+		beforeEach(function () {
+			message.notification = {
+				title : 'Ey',
+				body : 'Make push notifications great again',
+				sound : 'cielitolindo'
+			};
+			message.to = '/topics/testing';
+		});
+		
+		it('expected result dont have error if notification is valid',function () {
+			let result = ValidatorHelper.validateMessage(message);
+			expect(result.error).to.be.null;
+		});
+
 	});
 
 });
