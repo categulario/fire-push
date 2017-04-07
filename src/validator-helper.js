@@ -8,5 +8,7 @@ function validateSchema(schemaName, object) {
 
 export default {
 	
-	validateSchema : validateSchema
+	validateSchema : validateSchema,
+
+	validateNotification : validateSchema.bind(null, 'notification')
 }
