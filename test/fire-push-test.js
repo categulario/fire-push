@@ -1,26 +1,17 @@
-const chai = require('chai');
-const expect = chai.expect;
-const sinon = require('sinon');
-chai.use(require("sinon-chai"));
-chai.use(require('chai-as-promised'));
-const FirePush = require('..').default;
-const RequestHelper = require('../dist/src/request-helper').default;
-
+const chai = require('chai')
+const expect = chai.expect
+const sinon = require('sinon')
+chai.use(require("sinon-chai"))
+chai.use(require('chai-as-promised'))
+const FirePush = require('..').default
+const RequestHelper = require('../dist/src/request-helper').default
 
 describe('#Fire-Push Test', function () {
-	
 	it('Api key equal when is setted in constructor and when is getted', function () {
-		let apiKey = '17272829823';
-		let firePush = new FirePush(apiKey);
-		expect(apiKey).to.be.equal(firePush.apiKey);
-	});
-
-	it('Api key not equal when is setted directly in the object', function () {
-		let apiKey = '17272829823';
-		let firePush = new FirePush();
-		firePush.apiKey = apiKey;
-		expect(apiKey).to.not.equal(firePush.apiKey);
-	});
+		let apiKey = '17272829823'
+		let firePush = new FirePush({apiKey})
+		expect(apiKey).to.be.equal(firePush.configRequest.apiKey)
+	})
 
 	describe('#sendMessage', function(){
 		let firePush;
