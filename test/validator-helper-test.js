@@ -61,6 +61,9 @@ describe('#ValidatorHelper test', function(){
 				sound : 'cielitolindo'
 			};
 			message.to = '/topics/testing';
+			message.data = {
+				"info" : "everything is awesome"
+			};
 		});
 		
 		it('expected result dont have error if notification is valid',function () {
@@ -68,6 +71,23 @@ describe('#ValidatorHelper test', function(){
 			expect(result.error).to.be.null;
 		});
 
+		it('expected result must have error when "to" property is a number',function () {
+			message.to = 1272;
+			let result = ValidatorHelper.validateMessage(message);
+			expect(result.error).to.not.be.null;
+		});
+
+		it('expected result must have error when title property in notification is a number',function () {
+			message.notification.title = 1221;
+			let result = ValidatorHelper.validateMessage(message);
+			expect(result.error).to.not.be.null;
+		});
+
+		it('expected result must have error when some property in data is a number',function () {
+			message.data.info = 1221;
+			let result = ValidatorHelper.validateMessage(message);
+			expect(result.error).to.not.be.null;
+		});
 	});
 
 });
