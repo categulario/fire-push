@@ -6,7 +6,7 @@ export default class RequestHelper {
 		this.configRequest = config;
 	}
 
-	sendRequest (message) {
+	sendMessage (message) {
 		this.configRequest.body = JSON.stringify(message);
 		return new Promise(function (resolve, reject) {
 			request(this.configRequest, function(error, response, body) {
