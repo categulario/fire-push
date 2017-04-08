@@ -10,5 +10,7 @@ export default {
 	
 	validateSchema : validateSchema,
 
-	validateNotification : validateSchema.bind(null, 'notification')
+	validateNotification : validateSchema.bind(null, 'notification'),
+
+	validateMessage : validateSchema.bind(null, 'message'),
 }
