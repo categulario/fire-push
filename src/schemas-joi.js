@@ -28,7 +28,7 @@ const message = {
 	restricted_package_name	: Joi.string(),
 	dry_run	: Joi.boolean(),
 	to : Joi.string(),
-	notification : Joi.object().keys(notification),
+	notification : notification,
 	data : data
 };
 
