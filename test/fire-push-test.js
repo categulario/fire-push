@@ -46,5 +46,17 @@ describe('#Fire-Push Test', function () {
 			expect(promiseSended).to.be.fulfilled
 			expect(promiseSended).to.eventually.have.property("message_id")
 		});
+
+		it('message method must be reject when "to" property is number', function () {
+			message.to = 28382292
+			let promiseSended = firePush.sendMessage(message)
+			expect(promiseSended).be.rejected
+		});
+
+		it('message method must be reject when notification property is null', function () {
+			message.notification = null
+			let promiseSended = firePush.sendMessage(message)
+			expect(promiseSended).be.rejected
+		});
 	});
 });
