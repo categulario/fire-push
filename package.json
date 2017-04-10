@@ -1,6 +1,6 @@
 {
   "name": "fire-push",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Package to send push notifications using fcm",
   "main": "dist/src/fire-push.js",
   "scripts": {
