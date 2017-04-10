@@ -4,12 +4,12 @@ Node Package to send push notifications using FCM
 
 ## Requirements
 
-- You must get a api key (server key) from firebase
+- You must get an api key (server key) from firebase
 
 - Create a new project in your firebase console
 ![alt text](https://firebasestorage.googleapis.com/v0/b/gdgmonterrey.appspot.com/o/crear%20proyecto.png?alt=media&token=1550472b-2e34-4b25-a332-d795c338110c "Create project")
 
-- Copy the server key in the section cloud messaging
+- Copy the server key in the cloud messaging section
 ![alt text](https://firebasestorage.googleapis.com/v0/b/gdgmonterrey.appspot.com/o/clave.png?alt=media&token=76c88508-e822-487e-b536-c5373ae6488a "Cloud messaging section")
 
 ## Installation
@@ -38,7 +38,7 @@ let message = {
 };
 
 notificator.sendMessage(message)
-	.then((result) => console.log("notification sended"))
+	.then((result) => console.log("notification sent"))
 	.catch((error) => console.error(error));
 
 /* You can send message with data too
@@ -47,6 +47,6 @@ message.data : {
 };
 
 notificator.sendMessage(message)
-	.then((result) => console.log("notification sended"))
+	.then((result) => console.log("notification sent"))
 	.catch((error) => console.error(error));
 ```
