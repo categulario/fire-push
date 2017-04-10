@@ -20,7 +20,7 @@ npm install fire-push
 ## Usage
 
 ```
-const FirePush = require('fire-push');
+const FirePush = require('fire-push').default;
 
 let config = {
 	apiKey : 'YOUR_API_KEY'
