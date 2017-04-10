@@ -45,7 +45,7 @@ notificator.sendMessage(message)
 message.data : {
 	"extra" : "everything is awesome"
 };
-
+*/
 notificator.sendMessage(message)
 	.then((result) => console.log("notification sended"))
 	.catch((error) => console.error(error));
