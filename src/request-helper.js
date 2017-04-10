@@ -1,24 +1,20 @@
 import request from 'request';
 import Promise from 'bluebird';
+import ValidatorHelper from './validator-helper.js';
 
-export default {
-	createNotificationRequestConfig : function (config = {}) {
-		let configRequest = {};
-		let apiKey = config.apiKey || '';
-		let message = config.message || {};
-		configRequest.url = config.url || 'https://fcm.googleapis.com/fcm/send';
-		configRequest.method = config.method || 'POST';
-		configRequest.headers = {
-			'Content-Type' : 'application/json',
-			'Authorization': 'key=' + apiKey
-		};
-		configRequest.body = JSON.stringify(message);
-		return configRequest;
-	},
+export default class RequestHelper {
+	constructor (config = {}) {
+		this.configRequest = config;
+	}
 
-	sendRequest : function (config) {
+	sendMessage (message) {
+		let result = ValidatorHelper.validateMessage(message)
+		if (result.error) {
+			return Promise.reject({ message : "Invalid message body", error : result.error })
+		}
+		this.configRequest.body = JSON.stringify(message);
 		return new Promise(function (resolve, reject) {
-			request(config, function(error, response, body) {
+			request(this.configRequest, function(error, response, body) {
 				if (error)
 					reject(error);
 				else
