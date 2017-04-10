@@ -40,11 +40,21 @@ describe('#Fire-Push Test', function () {
 
 		it('message method must be fullfilled', function () {
 			let requestSenderStub = sandbox.stub(RequestHelper.prototype, 'sendMessage')
-			requestSenderStub.returns(Promise.resolve({ message_id : "1929292"}))
+			requestSenderStub.returns(
+				Promise.resolve({
+					"multicast_id": 108,
+					"success": 1,
+					"failure": 0,
+					"canonical_ids": 0,
+					"results": [
+						{ "message_id": "1:08" }
+					]}
+				)
+			)
 			let promiseSended = firePush.sendMessage(message)
 			expect(requestSenderStub).to.have.been.called
 			expect(promiseSended).to.be.fulfilled
-			expect(promiseSended).to.eventually.have.property("message_id")
+			expect(promiseSended).to.eventually.have.property("success").to.equal(1);
 		});
 
 		it('message method must be reject when "to" property is number', function () {
